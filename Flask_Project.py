@@ -1,4 +1,4 @@
-
+import math
 from flask import Flask, jsonify, request
 
 from scipy.spatial import distance
@@ -28,7 +28,7 @@ def hello(name):
 def ditance():
     r = request.get_json()
     
-    distance = r["a"][0]+r["b"][0]
+    distance = math.sqrt(((r["b"][0]-r["a"][0])*(r["b"][0]-r["a"][0]))+((r["b"][1]-r["a"][1])*(r["b"][1]-r["a"][1])))
 
     dist = {
         "distance": "Distance is {0}".format(distance),
