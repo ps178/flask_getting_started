@@ -28,7 +28,7 @@ def hello(name):
 def ditance():
     r = request.get_json()
     
-    distance = distance.euclidean(r["a"], r["b"]) 
+    distance = r["a"][0]+r["b"][0]
 
     dist = {
         "distance": "Distance is {0}".format(distance),
@@ -36,3 +36,6 @@ def ditance():
 	"b": "b is {0}".format(r["b"])
     }
     return jsonify(dist)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
